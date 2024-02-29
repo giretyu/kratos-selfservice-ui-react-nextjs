@@ -72,15 +72,15 @@ const Registration: NextPage = () => {
 
         // continue_with is a list of actions that the user might need to take before the registration is complete.
         // It could, for example, contain a link to the verification form.
-        if (data.continue_with) {
-          for (const item of data.continue_with) {
-            switch (item.action) {
-              case "show_verification_ui":
-                await router.push("/verification?flow=" + item.flow.id)
-                return
-            }
-          }
-        }
+        // if (data.continue_with) {
+        //   for (const item of data.continue_with) {
+        //     switch (item.action) {
+        //       case "show_verification_ui":
+        //         await router.push("/verification?flow=" + item.flow.id)
+        //         return
+        //     }
+        //   }
+        // }
 
         // If continue_with did not contain anything, we can just return to the home page.
         await router.push(flow?.return_to || "/")
